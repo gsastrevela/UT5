@@ -3,8 +3,11 @@ import Tabla from './Tabla'
 import TablaComponentesSimples from './TablaComponentesSimples'
 import TablaComponentesSimplesProps from './TablaComponentesSimplesProps'
 import TablaComponentesSimplesState from './TablaComponentesSimplesState'
+/*import personajes from './personajes' */
+import Formulario from './Formulario'
 class AplicacionPrincipal extends Component{
     /*objeto para utilizar en state */
+    /*
     state = {
         personajes: [
             {
@@ -30,7 +33,19 @@ class AplicacionPrincipal extends Component{
             }
         ]
     }
+    */
+   /*utilizo un fichero json con los datos de personajes */
+  /*
+   state = {personajes}
+*/ /*dejo la coleccion vacia para rellenarla con un formulario */
+state = {personajes: []}
 
+/*metodo para manejar los datos del formulario */
+manejarEnvio = personaje => {
+     this.setState({personajes: [...this.state.personajes, personaje]});
+}
+
+/*metodo para borrar personajes */
     borrarPersonaje = indice => {
         const { personajes } = this.state;
         this.setState({
@@ -76,6 +91,8 @@ class AplicacionPrincipal extends Component{
                 <TablaComponentesSimplesProps datosActoresActrices={actoresactrices}/>
                 <h2>tabla creada con componentes simples con state y que permite eliminar elementos</h2>
                 <TablaComponentesSimplesState datosPersonaje={personajes} borrarPersonaje={this.borrarPersonaje}/>
+                <h2>añadir nuevo personaje</h2>
+                <Formulario manejarEnvio={this.manejarEnvio} />
             </div>
         )
     }
