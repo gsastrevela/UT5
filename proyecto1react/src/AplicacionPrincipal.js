@@ -5,6 +5,7 @@ import TablaComponentesSimplesProps from './TablaComponentesSimplesProps'
 import TablaComponentesSimplesState from './TablaComponentesSimplesState'
 /*import personajes from './personajes' */
 import Formulario from './Formulario'
+import Api from './Api'
 class AplicacionPrincipal extends Component{
     /*objeto para utilizar en state */
     /*
@@ -93,6 +94,10 @@ manejarEnvio = personaje => {
                 <TablaComponentesSimplesState datosPersonaje={personajes} borrarPersonaje={this.borrarPersonaje}/>
                 <h2>añadir nuevo personaje</h2>
                 <Formulario manejarEnvio={this.manejarEnvio} />
+                <h2>utilizacion de una API externa</h2>
+                <h3>Lista de contactos:</h3> 
+                <Api />
+
             </div>
         )
     }
